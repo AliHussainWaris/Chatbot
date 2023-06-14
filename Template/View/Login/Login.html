@@ -1,0 +1,152 @@
+{% load static %} {% load static tailwind_tags %}
+<html>
+  <head>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{%static '/image/favicon.ico'%}"
+    />
+    {% tailwind_css %}
+    <style>
+      body {
+        background-image: url("{% static '/image/LSImages/background.gif' %}");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    </style>
+    <title>Login</title>
+  </head>
+  <body class="h-screen flex justify-center items-center">
+    <form
+      method="POST"
+      class="default:bg-transparent p-8 border border-white text-white rounded-3xl shadow-2xl"
+      style="text-align: center;"   
+    >
+      {% csrf_token %}
+      <h1 class="text-2xl" style="text-align: center;">SIGN IN</h1>
+      <div class="p-4">
+        <div class="flex gap-2 flex-col bg-transparent text-left pt-4">
+          <label class="hidden" id="maillabel">Email / Username</label>
+          <input
+            id="mail"
+            type="text"
+            name = "email"
+            placeholder="Email / Username"
+            onfocus="inmailfun() , this.placeholder=''"
+            onblur="outmailfun() , this.placeholder='Email / Username'"
+            class="rounded bg-transparent border-gray-100 text-white placeholder-white"
+          />
+        </div>
+        <div class="flex gap-2 flex-col bg-transparent text-left pt-4">
+          <label class="hidden" id="passlabel">Password</label>
+          <div
+            class="flex flex-row rounded border border-gray-100"
+            id="passdiv"
+            tabindex="1"
+          >
+            <input
+              id="pass"
+              type="password"
+              name = "password"
+              placeholder="Password"
+              onfocus="inpassfun() , this.placeholder=''"
+              onblur="outpassfun() , this.placeholder='Password'"
+              class="bg-transparent text-white border-none focus:outline-0 rounded-sm placeholder-white"
+            />
+            <svg
+              fill="none"
+              class="p-1"
+              id="show"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              width="25px"
+              aria-hidden="true"
+              onclick="change()"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+              ></path>
+            </svg>
+            <svg
+              fill="none"
+              class="p-1"
+              id="hide"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              width="25px"
+              aria-hidden="true"
+              onclick="seechange()"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <p class="text-sm pt-2">
+          Don't Have an account
+          <a href="/Signup" class="underline font-bold cursor-pointer">SIGN UP</a> ?
+        </p>
+        <input
+          type="Submit"
+          class="border border-blue-500 w-1/2 text-blue-500 hover:bg-blue-500 hover:text-white uppercase font-bold py-2 px-4 rounded-full mt-4"
+          value="Login"
+        />
+      </div>
+    </form>
+    <script>
+      var x = document.getElementById("maillabel");
+      var y = document.getElementById("passlabel");
+      var w = document.getElementById("show");
+      var z = document.getElementById("hide");
+      var pass = document.getElementById("pass");
+      var divpass = document.getElementById("passdiv");
+      z.style.display = "none";
+      function change() {
+        z.style.display = "inline";
+        w.style.display = "none";
+        document.getElementById("pass").type = "text";
+      }
+      function seechange() {
+        w.style.display = "inline";
+        z.style.display = "none";
+        document.getElementById("pass").type = "password";
+      }
+      function inmailfun() {
+        x.style.display = "block";
+        divpass.style.border = "";
+      }
+      function outmailfun() {
+        x.style.display = "none";
+      }
+      function inpassfun() {
+        y.style.display = "block";
+      }
+      function outpassfun() {
+        y.style.display = "none";
+      }
+      username = "{{name}}"
+      console.log("User Data : ", username)
+      if (username){
+        localStorage.setItem('user-name' , username)
+      }
+      else{
+        localStorage.setItem('error' , "Error in getting the User")
+      }
+    </script>
+  </body>
+</html>

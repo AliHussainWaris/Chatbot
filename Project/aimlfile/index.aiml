@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+        
+	<!-- insert your AIML categories here -->
+	<!-- Greeting-->
+    <category>
+        <pattern>Hi ^</pattern>
+        <template>
+            <random>
+                <li>Hello there!</li>
+                <li>Hey, how can I assist you?</li>
+                <li>What's up?</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>Hello ^</pattern>
+        <template>
+            <srai>Hi ^</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>Hey ^</pattern>
+        <template>
+            <srai>Hi ^</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>Whatsup ^</pattern>
+        <template>
+            <srai>Hi ^</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            My name is ^
+        </pattern>
+        <template>
+            <random>
+                <li>Hello There , <star/><set name="humanname"><star/></set></li>
+                <li>What's up <star/><set name="humanname"><star/></set></li>
+                <li>How may i Assist you <star/><set name="humanname"><star/></set>?</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>What is my name</pattern>
+        <template>
+            <set name="username"><get name="username" /></set>
+            Your name is <get name="username" />.
+        </template>
+    </category>
+    <category>
+        <pattern>What is Web Development ^</pattern>
+        <template>
+                <li>Web Development is the building and maintance of Website .</li>
+        </template>
+    </category>
+    <category>
+        <pattern>What Service do you provide ^ </pattern>
+        <template>
+            We Provide :<br/>
+            1 . UI / UX Design<br/>
+            2 . Frontend<br/>
+            3 . Debugging the code<br/>
+            4 . Chatbot<br/>
+            5 . Email Templating<br/>
+            6 . Website<br/>
+            7 . Backend
+        </template>
+    </category>
+    <category>
+        <pattern>
+            Service Provide ^
+        </pattern>
+        <template>
+            <srai>
+                What Service do you provide ^
+            </srai>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            Services
+        </pattern>
+        <template>
+            <srai>
+                What Service do you provide ^
+            </srai>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            Service^s
+        </pattern>
+        <template>
+            <srai>
+                What Service do you provide ^
+            </srai>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            What do you mean by Frontend ^
+        </pattern>
+        <template>
+            Front-end web development is the development of the graphical user interface of a website, through the use of HTML, CSS, and JavaScript, so that users can view and interact with that website.
+        </template>
+    </category>
+    <cateogry>
+        <pattern>
+            What is Frontend^
+        </pattern>
+        <template>
+            Front-end web development is the development of the graphical user interface of a website, through the use of HTML, CSS, and JavaScript, so that users can view and interact with that website.
+        </template>
+    </cateogry>
+    <category>
+        <pattern>
+            What do you mean by Backend ^
+        </pattern>
+        <template>The back end refers to parts of a computer application or a program's code that allow it to operate and that cannot be accessed by a user</template>
+    </category>
+    <category>
+        <pattern>
+            Frontend ^
+        </pattern>
+        <template>
+            In Frontend we use HTML , CSS , JAVASCRIPT , PHP and some of the Javascript Framework or Library.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            Javascript Framework ^
+        </pattern>
+        <template>
+            Javascript Frameworks : <br/>
+            1 . React.js <br/>
+            2 . Angular.js <br/>
+            4 . Vue.js <br/>
+            5 . Next.js <br/>
+            6 . Backbone.js
+        </template>
+    </category>
+    <category>
+        <pattern>
+            Javascript Frameworks ^
+        </pattern>
+        <template>
+            <srai>
+                Javascript Framework ^
+            </srai>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            Backend Framework ^
+        </pattern>
+        <template>
+            Backend Framework :<br/>
+            1 . Node.js<br/>
+            2 . Larvel<br/>
+            3 . Rails<br/>
+            4 . Django<br/>
+            5 . Flask
+        </template>
+    </category>
+    <category>
+        <pattern>
+            Backend Frameworks ^
+        </pattern>
+        <template>
+            <srai>
+                Backend Framework ^
+            </srai>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            Which Frontend Framework do you prefer ^
+        </pattern>
+        <template>
+            React.js is for the best speed and one page application . <br/>
+            PHP is for the biggest data transfer . 
+        </template>
+    </category>
+    <category>
+        <pattern>
+            Which Backend Framework do you prefer ^
+        </pattern>
+        <template>
+            Node.js , Express.js <br/>
+            PHP is for the big data transfer and cost efficent
+        </template>
+    </category>
+    <category>
+        <pattern>Bye ^</pattern>
+        <template>
+            <random>
+                <li>See you <get name="humanname"/></li>
+                <li>Ok Bye <get name="humanname"/></li>
+                <li>Bye <get name="humanname"/></li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>Images</pattern>
+        <template>
+            <image>data:image/png;base64,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</image>
+        </template>
+    </category>
+    <category>
+        <pattern>How are you ^</pattern>
+        <template>
+            <random>
+                <li>I'm Fine . What about you ?</li>
+                <li>I am Fine . How are you ?</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>How is your inventor ^</pattern>
+        <template>His name is Mohammed Ali Hussain Waris</template>
+    </category>
+</aiml>
